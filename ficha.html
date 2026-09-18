@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha · Panel Romina Garino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+
+<div class="ficha-head">
+  <div class="header-row">
+    <a href="alumnos.html" class="link-ghost">← Alumnos</a>
+    <a href="#" class="link-ghost" id="btn-logout">Cerrar sesión</a>
+  </div>
+  <h2 id="ficha-name" style="font-size:30px;margin-top:10px;">—</h2>
+  <div class="ficha-tags">
+    <span class="tag tag-neutral" id="ficha-status">—</span>
+    <span class="tag tag-neutral" id="ficha-level">—</span>
+    <span class="sub" id="ficha-since"></span>
+  </div>
+</div>
+
+<div class="data-grid">
+  <div class="data-cell"><span class="metric-label">Cuota</span><strong id="cell-cuota">—</strong></div>
+  <div class="data-cell"><span class="metric-label">Vence</span><strong id="cell-vence">—</strong></div>
+  <div class="data-cell"><span class="metric-label">Asistencia 30d</span><strong id="cell-asistencia">—</strong></div>
+  <div class="data-cell"><span class="metric-label">Teléfono</span><strong id="cell-telefono" style="font-size:15px;">—</strong></div>
+</div>
+
+<div class="ficha-actions">
+  <button class="btn-primary btn-full" id="btn-pay">Registrar pago</button>
+  <div class="grid-2">
+    <button class="btn-secondary btn-full" id="btn-change-plan">Cambiar plan</button>
+    <button class="btn-secondary btn-full" id="btn-messages">Mensajes</button>
+  </div>
+</div>
+
+<p class="section-label">Plan asignado</p>
+<div class="plan-box" id="plan-box"></div>
+
+<p class="section-label">Mensajes</p>
+<div class="thread" id="thread"></div>
+<div class="send-row">
+  <input class="input" type="text" id="msg-input" placeholder="Escribir un mensaje…">
+  <button class="btn-primary" id="btn-send-msg">Enviar</button>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<!-- Modal: Registrar pago -->
+<div class="modal-overlay" id="modal-payment" hidden>
+  <div class="modal-sheet">
+    <button type="button" class="link-ghost" id="payment-close" style="float:right;">Cerrar</button>
+    <p class="kicker">REGISTRAR PAGO</p>
+    <h3 id="payment-name">—</h3>
+    <p class="sub" id="payment-plan" style="margin-bottom:16px;">—</p>
+    <div class="modal-field">
+      <label>Monto</label>
+      <input class="input" type="text" id="payment-amount">
+    </div>
+    <div class="modal-field">
+      <label>Método</label>
+      <div class="segmented" id="payment-method" style="grid-template-columns:1fr 1fr 1fr;">
+        <button type="button" class="active" data-method="transfer">Transferencia</button>
+        <button type="button" data-method="mercadopago">Mercado Pago</button>
+        <button type="button" data-method="cash">Efectivo</button>
+      </div>
+    </div>
+    <button class="btn-primary btn-full" id="btn-confirm-payment">Confirmar cobro</button>
+  </div>
+</div>
+
+<!-- Modal: Cambiar plan -->
+<div class="modal-overlay" id="modal-change-plan" hidden>
+  <div class="modal-sheet">
+    <button type="button" class="link-ghost" id="change-plan-close" style="float:right;">Cerrar</button>
+    <p class="kicker">CAMBIAR PLAN</p>
+    <h3>Elegí el nuevo plan</h3>
+    <div class="select-list" id="change-plan-list"></div>
+    <button class="btn-primary btn-full" id="btn-assign-plan" style="margin-top:16px;">Asignar plan</button>
+  </div>
+</div>
+
+<nav class="tabbar">
+  <a href="hoy.html" class="tab">Hoy</a>
+  <a href="alumnos.html" class="tab active">Alumnos</a>
+  <a href="cobros.html" class="tab">Cobros</a>
+  <a href="planes.html" class="tab">Planes</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

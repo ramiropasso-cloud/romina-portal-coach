@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cobros · Panel Romina Garino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+
+<header class="app-header">
+  <div class="header-row">
+    <h2>Cobros</h2>
+    <a href="#" class="link-ghost" id="btn-logout">Cerrar sesión</a>
+  </div>
+</header>
+
+<div class="recaudado">
+  <span class="metric-label">Recaudado este mes</span>
+  <div class="recaudado-amount" id="recaudado-amount">—</div>
+  <p class="sub" id="recaudado-total">—</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%;"></div></div>
+  <div class="progress-note">
+    <span id="progress-pct">—</span>
+    <span id="progress-remaining">—</span>
+  </div>
+</div>
+
+<p class="section-label">Avisos pendientes de confirmar</p>
+<div id="pending-list"></div>
+
+<p class="section-label">Alumnas</p>
+<div class="list-search" style="padding-top:0;">
+  <div class="segmented" id="cobros-filter" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+    <button type="button" class="active" data-filter="todos">Todas</button>
+    <button type="button" data-filter="al-dia">Al día</button>
+    <button type="button" data-filter="por-vencer">Por vencer</button>
+    <button type="button" data-filter="vencidas">Vencidas</button>
+  </div>
+</div>
+<div id="cobros-list"></div>
+
+<div class="toast" id="toast" hidden></div>
+
+<!-- Modal: Registrar pago -->
+<div class="modal-overlay" id="modal-payment" hidden>
+  <div class="modal-sheet">
+    <button type="button" class="link-ghost" id="payment-close" style="float:right;">Cerrar</button>
+    <p class="kicker">REGISTRAR PAGO</p>
+    <h3 id="payment-name">—</h3>
+    <p class="sub" id="payment-plan" style="margin-bottom:16px;">—</p>
+    <div class="modal-field">
+      <label>Monto</label>
+      <input class="input" type="text" id="payment-amount">
+    </div>
+    <div class="modal-field">
+      <label>Método</label>
+      <div class="segmented" id="payment-method" style="grid-template-columns:1fr 1fr 1fr;">
+        <button type="button" class="active" data-method="transfer">Transferencia</button>
+        <button type="button" data-method="mercadopago">Mercado Pago</button>
+        <button type="button" data-method="cash">Efectivo</button>
+      </div>
+    </div>
+    <button class="btn-primary btn-full" id="btn-confirm-payment">Confirmar cobro</button>
+  </div>
+</div>
+
+<nav class="tabbar">
+  <a href="hoy.html" class="tab">Hoy</a>
+  <a href="alumnos.html" class="tab">Alumnos</a>
+  <a href="cobros.html" class="tab active">Cobros</a>
+  <a href="planes.html" class="tab">Planes</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

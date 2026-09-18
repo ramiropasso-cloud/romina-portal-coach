@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoy · Panel Romina Garino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+
+<header class="app-header">
+  <div class="header-row">
+    <p class="kicker" id="today-kicker">—</p>
+    <a href="#" class="link-ghost" id="btn-logout">Cerrar sesión</a>
+  </div>
+  <h2>Hoy</h2>
+</header>
+
+<div class="metrics-row">
+  <div class="metric-cell">
+    <span class="metric-label">Activos</span>
+    <span class="metric-value" id="metric-activos">—</span>
+  </div>
+  <div class="metric-cell">
+    <span class="metric-label">Entrenaron</span>
+    <span class="metric-value" id="metric-entrenaron">—</span>
+  </div>
+  <div class="metric-cell is-accent">
+    <span class="metric-label">Vencidos</span>
+    <span class="metric-value" id="metric-vencidos">—</span>
+  </div>
+</div>
+
+<div class="quick-actions">
+  <button class="btn-primary btn-full" id="btn-new-student">+ Nuevo alumno</button>
+  <div class="grid-2">
+    <a class="btn-secondary btn-full" href="alumnos.html">Ver alumnos</a>
+    <a class="btn-secondary btn-full" href="cobros.html">Ver cobros</a>
+  </div>
+</div>
+
+<p class="section-label">Requiere atención</p>
+<div id="attn-list"></div>
+
+<p class="section-label">Actividad de tus alumnas</p>
+<div id="activity-list"></div>
+
+<div class="toast" id="toast" hidden></div>
+
+<!-- Modal: Nuevo alumno -->
+<div class="modal-overlay" id="modal-new-student" hidden>
+  <div class="modal-sheet">
+    <button type="button" class="link-ghost" id="new-student-close" style="float:right;">Cerrar</button>
+    <p class="kicker">NUEVO ALUMNO</p>
+    <h3>Dar de alta</h3>
+    <div id="new-student-form">
+      <div class="modal-field">
+        <label>Nombre y apellido</label>
+        <input class="input" type="text" id="new-student-name">
+      </div>
+      <div class="modal-field">
+        <label>Teléfono (con 549)</label>
+        <input class="input" type="tel" id="new-student-phone" placeholder="5492302XXXXXX">
+      </div>
+      <div class="modal-field">
+        <label>Cuota mensual (opcional)</label>
+        <input class="input" type="text" id="new-student-fee" placeholder="40000">
+      </div>
+      <div class="modal-field">
+        <label>Plan inicial (opcional)</label>
+        <div class="select-list" id="new-student-plan-list"></div>
+      </div>
+      <button class="btn-primary btn-full" id="btn-create-student">Dar de alta</button>
+    </div>
+    <div id="new-student-done" hidden>
+      <p class="sub">Alumna dada de alta. Código de acceso:</p>
+      <h1 style="font-size:40px;letter-spacing:.1em;margin:8px 0 18px;">— <span id="new-student-code"></span> —</h1>
+      <a class="btn-primary btn-full" id="new-student-wa" target="_blank" rel="noopener" style="display:block;text-align:center;margin-bottom:10px;">Enviar por WhatsApp</a>
+      <button class="btn-secondary btn-full" id="new-student-close-done">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<nav class="tabbar">
+  <a href="hoy.html" class="tab active">Hoy</a>
+  <a href="alumnos.html" class="tab">Alumnos</a>
+  <a href="cobros.html" class="tab">Cobros</a>
+  <a href="planes.html" class="tab">Planes</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

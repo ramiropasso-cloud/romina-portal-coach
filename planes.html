@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planes · Panel Romina Garino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+
+<header class="app-header">
+  <div class="header-row">
+    <h2>Planes</h2>
+    <a href="#" class="link-ghost" id="btn-logout">Cerrar sesión</a>
+  </div>
+</header>
+
+<p class="sub" style="padding:14px 18px 0;">
+  Biblioteca de solo lectura. Para crear o editar un plan, usá el pipeline
+  de <code>claudeviaclaudecode/</code> en el repo del portal del alumno.
+</p>
+
+<div id="plans-list"></div>
+
+<div class="toast" id="toast" hidden></div>
+
+<nav class="tabbar">
+  <a href="hoy.html" class="tab">Hoy</a>
+  <a href="alumnos.html" class="tab">Alumnos</a>
+  <a href="cobros.html" class="tab">Cobros</a>
+  <a href="planes.html" class="tab active">Planes</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
